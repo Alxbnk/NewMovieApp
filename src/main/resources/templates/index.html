@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MovieApp</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">MovieApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h3 class="text-center">Search</h3>
+            <form id="searchForm">
+                <input type="text" class="form-control" id="searchText" placeholder="Search Movie">
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h3 class="text-center">List of Movies</h3>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Time</th>
+                    <th>Production Year</th>
+                </tr>
+                <tr th:each="movie : ${Movies}">
+                    <td th:text="${Movies.title}"/>
+                    <td th:text="${Movies.genre}"/>
+                    <td th:text="${Movies.time}"/>
+                    <td th:text="${Movies.pY}"/>
+                </tr>
+            </table>
+
+        </div>
+
+</body>
+<link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</html>
